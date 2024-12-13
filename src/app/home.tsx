@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { api } from "@/app/services/api"
 
 import { PlaceProps } from "./components/place"
+import { Places } from "./components/places"
 import {Categories, CategoriesProps} from "@/app/components/categories"
 
 type MarketsProps = PlaceProps & {
@@ -32,10 +33,11 @@ export default function Home(){
             if(!category){
                 return
             }
-
             const {data} = await api.get("/markets/category/" + category)
             setMarkets(data)
             console.log(data)
+            
+            
 
         } catch(error) {
             console.log(error)
@@ -51,11 +53,13 @@ export default function Home(){
     useEffect(() =>{
         fetchMarkets()
     }, [category])
-   return <View style={{flex: 1}}>
+   return <View style={{flex: 1, backgroundColor: "#CECECE"}}>
     <Categories
      data={categories}
      onSelect={setCategory}
      selected={category}/>
+
+     <Places data={markets}/>
    </View>
 
 
