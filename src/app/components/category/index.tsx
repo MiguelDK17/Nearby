@@ -1,13 +1,13 @@
-import { Text, Pressable, PressableProps } from "react-native";
+import { Text, PressableProps, Pressable } from "react-native";
 
 import {s} from "./styles"
 import { categoriesIcons } from "@/app/utils/categories-icons";
 import {colors} from "@/app/styles/theme"
 
 type Props = PressableProps & {
-    iconId: string
-    isSelected?: boolean
     name: string
+    iconId: string
+    isSelected: boolean
 }
 
 export function Category({name, iconId, isSelected = false, ...rest}: Props){
@@ -15,7 +15,8 @@ export function Category({name, iconId, isSelected = false, ...rest}: Props){
 
 
     return (
-        <Pressable style={[s.container, isSelected && s.containerSelected]}
+        <Pressable 
+        style={[s.container, isSelected && s.containerSelected]}
         {...rest}>
             <Icon size={16} color={colors.gray[isSelected ? 100: 400]}/>
             <Text style={[s.name, isSelected && s.nameSelected]}>{name}</Text>
