@@ -1,2 +1,2 @@
 # Nearby
-Aplicativo desenvolvido na NLW Pocket> Mobile na trilha React Native da Rocketseat
+Aplicativo desenvolvido na NLW Pocket Mobile na trilha React Native da Rocketseat
